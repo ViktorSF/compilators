@@ -5,9 +5,10 @@ void oi() // debugger que conheço
     printf("oi\n");
 }
 
- char* devolve_token(char c, FILE* entrada)
+ char* devolve_token(char c, FILE* entrada, char* cadeia)
 {
     int s = 0; // estado inicial
+
     switch(s)
     {
         case 0 :
@@ -32,7 +33,7 @@ void oi() // debugger que conheço
             else{ return ("falha"); }
             break;
         case 3 :
-            if(c == EOF) { retroceder(entrada); return ("simb_dp"); }
+            if(c == EOF) { retroceder(entrada); return (":, simb_dp"); }
             else{ return ("falha"); }
             break;
         case 4 :
@@ -40,16 +41,24 @@ void oi() // debugger que conheço
             else if(c == '>') { s = 6; }
             break;
         case 5 :
+            return("<=, simb_menor_igual");
             break;
         case 6 :
+            return("<>, sim_dif");
             break;
         case 7 :
+            retroceder(entrada);
+            return("<, simb_menor");
             break;
         case 8 :
+            return("=, simb_igual")
             break;
         case 9 :
+            return(">=, simb_maior_igual")
             break;
         case 10 :
+            retroceder(entrada);
+            return(">, simb_maior");
             break;
         case 11 :
             if(c == '=') { s = 9; }
@@ -78,6 +87,8 @@ void oi() // debugger que conheço
             if(flag == 0) { s = 13; }
             break;
         case 13 :
+            retroceder(entrada);
+            return("cadeia, id");
             break;
         case 14 :
             int flag = 0;
@@ -97,6 +108,8 @@ void oi() // debugger que conheço
             else { s = 16;}
             break;
         case 16 :
+            retroceder(entrada);
+            return("cadeia, numero_inteiro");
             break;
         case 17 :
             int flag = 0;
@@ -112,8 +125,21 @@ void oi() // debugger que conheço
             if(flag == 0 ) { return("falha"); }
             break;
         case 18 :
+            for(int i = 0; i <= 9; i++)
+            {
+                if(c == '0'+ i)
+                {
+                    s = 12;
+                    flag = 1;
+                    break;
+                }
+            }
+            if(flag == 0) { s = 19;
+            } else{ s = 18; }
             break;
         case 19 :
+            retroceder(entrada);
+            return("cadeia, numero_real");
             break;
         case 20 :
             if(c == '}') {s = 21;}

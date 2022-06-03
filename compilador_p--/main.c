@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cabecalho.h"
-
+#include <windows.h>
 
 int main()
 {
+
     FILE* entrada;
     FILE* saida;
     char c, t[16]; // o maior token(simb_menor_igual) tem tamanho 16
@@ -14,9 +15,8 @@ int main()
     while(1)
     {
         c = fgetc(entrada);
-        t = devolve_token(c, entrada);
+        strcpy( t, devolve_token(c, entrada) );
     }
-
 
 
 
@@ -25,7 +25,6 @@ int main()
 
     fclose(entrada);
     fclose(saida);
-    printf("Hello world!\n");
     oi();
     return 0;
 }
