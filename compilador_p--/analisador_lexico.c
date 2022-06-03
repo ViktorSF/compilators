@@ -12,17 +12,15 @@ void oi() // debugger que conheço
     switch(s)
     {
         case 0 :
-            if(c == '\t' || c == '\n' || c == 39 ){ s = 0; } // 39 na tabela ascii é a aspas simples '
-            else if(c == ':') { s = 1; }                     // como colocar aspas simples dentro de aspas simples ''' em c?
-            else if(c == '<') { s = 4; }
-            else if(c == '=') { s = 8; }
-            else if(c == '>') { s = 11;}
-            else if(c == '+' || c == '-') { s = 14; }
-            else if(c == '{') { s = 20;}
-            for(int i = 0; i<= 9; i++)
-            {
-                if(c == '0'+ i) { s = 15; break;}
-            }
+            if(c == '\t' || c == '\n' || c == 39 )                      { s = 0; } // 39 na tabela ascii é a aspas simples '
+            else if(c == ':')                                           { s = 1; }                     // como colocar aspas simples dentro de aspas simples ''' em c?
+            else if(c == '<')                                           { s = 4; }
+            else if(c == '=')                                           { s = 8; }
+            else if(c == '>')                                           { s = 11;}
+            else if( (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ) { s = 12; }
+            else if(c == '+' || c == '-')                               { s = 14; }
+            else if(c >= '0' && c <= '9')                                { s = 15; }
+            else if(c == '{')                                           { s = 20;}
             break;
         case 1 :
             if(c == '=') { s = 2; }
@@ -111,8 +109,6 @@ void oi() // debugger que conheço
         case 21 :
             return("cadeia, comentario");
             break;
-        default:
-            return ("oi mundo");
     }
 }
 

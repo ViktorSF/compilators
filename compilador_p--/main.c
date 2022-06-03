@@ -15,7 +15,9 @@ int main()
     do
     {
         c = fgetc(entrada);
+        //printf("%c", c);
         strcpy( t, devolve_token(c, entrada) );
+        printf("%s\n", t);
         fputs(t, saida);
     }while(c != EOF);
 
@@ -26,6 +28,5 @@ int main()
 
     fclose(entrada);
     fclose(saida);
-    oi();
     return 0;
 }
