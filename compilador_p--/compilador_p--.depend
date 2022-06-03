@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1654190761 source:c:\dev\cprojects\compilador_p--\analisador_lexico.c
+1654270141 source:c:\dev\cprojects\compilador_p--\analisador_lexico.c
 	"cabecalho.h"
 
 1653980568 c:\dev\cprojects\compilador_p--\cabecalho.h
 	<stdio.h>
 	<stdlib.h>
 
-1654190779 source:c:\dev\cprojects\compilador_p--\main.c
+1654269903 source:c:\dev\cprojects\compilador_p--\main.c
 	<stdio.h>
 	<stdlib.h>
 	"cabecalho.h"

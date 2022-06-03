@@ -10,13 +10,14 @@ int main()
     FILE* saida;
     char c, t[16]; // o maior token(simb_menor_igual) tem tamanho 16
 
-    entrada = fopen("meu_programa.txt", "r");
+    entrada = fopen("entrada.txt", "r");
     saida = fopen("saida.txt", "w");
-    while(1)
+    do
     {
         c = fgetc(entrada);
         strcpy( t, devolve_token(c, entrada) );
-    }
+        fputs(t, saida);
+    }while(c != EOF);
 
 
 

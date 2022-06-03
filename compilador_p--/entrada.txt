@@ -1,0 +1,7 @@
+program p;
+var x1: integer;
+begin
+	x:=1;
+	whike(x<3) do
+		x:=x+1;
+end.

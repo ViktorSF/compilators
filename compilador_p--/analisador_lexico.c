@@ -5,7 +5,7 @@ void oi() // debugger que conheço
     printf("oi\n");
 }
 
- char* devolve_token(char c, FILE* entrada, char* cadeia)
+ char* devolve_token(char c, FILE* entrada)
 {
     int s = 0; // estado inicial
 
@@ -51,10 +51,10 @@ void oi() // debugger que conheço
             return("<, simb_menor");
             break;
         case 8 :
-            return("=, simb_igual")
+            return("=, simb_igual");
             break;
         case 9 :
-            return(">=, simb_maior_igual")
+            return(">=, simb_maior_igual");
             break;
         case 10 :
             retroceder(entrada);
@@ -65,43 +65,20 @@ void oi() // debugger que conheço
             else{ return ("falha"); }
             break;
         case 12 :
-            int flag = 0;
-            for(int i = 0; i < 26; i++ ){
-                if(c == ('A' + i) ||c == ('a' + i) )
-                {
-                    s = 12;
-                    flag = 1;
-                    break;
-                }
-
-            }
-            for(int i = 0; i <= 9; i++)
+            if( (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
             {
-                if(c == '0'+ i)
-                {
-                    s = 12;
-                    flag = 1;
-                    break;
-                }
-            }
-            if(flag == 0) { s = 13; }
+                s = 12;
+            }else{ s = 13; }
             break;
         case 13 :
             retroceder(entrada);
             return("cadeia, id");
             break;
         case 14 :
-            int flag = 0;
-            for(int i = 0; i <= 9; i++)
+            if( c >= '0' && c <= '9')
             {
-                if(c == '0' + i)
-                {
-                    s = 15;
-                    flag = 1;
-                    break;
-                }
-            }
-            if(flag == 0 ) { return("falha"); }
+                s = 15;
+            } else{ return("falha"); }
             break;
         case 15 :
             if(c == '.') {s =  17; }
@@ -112,30 +89,16 @@ void oi() // debugger que conheço
             return("cadeia, numero_inteiro");
             break;
         case 17 :
-            int flag = 0;
-            for(int i = 0; i <= 9; i++)
+            if(c >= '0' && c <= '9')
             {
-                if(c == '0' + i)
-                {
-                    s = 15;
-                    flag = 1;
-                    break;
-                }
-            }
-            if(flag == 0 ) { return("falha"); }
+                s = 18;
+            }else { return("falha"); }
             break;
         case 18 :
-            for(int i = 0; i <= 9; i++)
+            if(c >= '0' && c <= '9')
             {
-                if(c == '0'+ i)
-                {
-                    s = 12;
-                    flag = 1;
-                    break;
-                }
-            }
-            if(flag == 0) { s = 19;
-            } else{ s = 18; }
+                s = 18;
+            } else{ s = 19; }
             break;
         case 19 :
             retroceder(entrada);
@@ -146,7 +109,10 @@ void oi() // debugger que conheço
             else { s = 20; }
             break;
         case 21 :
+            return("cadeia, comentario");
             break;
+        default:
+            return ("oi mundo");
     }
 }
 
