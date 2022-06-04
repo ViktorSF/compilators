@@ -6,6 +6,7 @@
 
 void oi(); // debugger por força bruta
 void retroceder(FILE* entrada);
-char* devolve_token(char c, FILE* entrada);
+char* devolve_token(char c, FILE* entrada, int* s);
+void casen(int n);
 
 #endif // CABECALHO_H_INCLUDED
