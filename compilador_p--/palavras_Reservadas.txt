@@ -1,0 +1,26 @@
+program
+const
+real
+integer
+procedure
+else
+
+
+for
+read
+write
+
+while
+do
+if
+then
+begin
+end
+
+var
+
+
+;, simb_separador
+,, simb_virgula
++|-|/|* simbs_operadores_aritiméticos
+
